@@ -1,7 +1,6 @@
 # Data files (too large for GitHub)
 data/raw/*.XPT
 
-
 # Python
 venv/
 __pycache__/
@@ -28,7 +27,10 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
 
 # Environment
 .env
+
+# Temporary download scripts (not needed in deployment)
+download_data.py
+download_nhanes_v2.py

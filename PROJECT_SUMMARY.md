@@ -585,7 +585,7 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
 4. **Push to GitHub**
 ```bash
 # Add remote (replace YOUR_USERNAME with your GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/BIME533_Proj.git
+git remote add origin https://github.com/xumeng-zhang/BIME533_proj.git
 
 # Rename branch to main
 git branch -M main
