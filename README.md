@@ -82,11 +82,11 @@ BIME533_Proj/
 │       ├── 1_Overview.py         # Key findings summary
 │       ├── 2_Explore_Data.py     # Interactive exploration
 │       └── 3_Methodology.py      # Methods and trustworthiness
-├── analysis/
+├── results/
 │   ├── figures/                  # Publication-quality plots
 │   └── key_findings.txt          # Summary of main results
-├── report/
-│   └── final_report.pdf          # Written report (3-5 pages)
+├── docs/
+│   └── final_report.md           # Written report (3-5 pages)
 ├── requirements.txt              # Python dependencies
 ├── generate_analysis.py          # Generate figures and findings
 └── README.md                     # This file
@@ -153,7 +153,7 @@ streamlit run dashboard/app.py
 
 - **Dashboard Overview**: See `dashboard/app.py` and visit the deployed dashboard
 - **Methodology**: Detailed explanation in dashboard's Methodology page
-- **Key Findings**: See `analysis/key_findings.txt`
+- **Key Findings**: See `results/key_findings.txt`
 
 ### For Developers
 

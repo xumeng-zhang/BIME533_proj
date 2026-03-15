@@ -21,7 +21,7 @@ print(f"Loaded {len(data):,} participants\n")
 
 # Create figures directory
 import os
-os.makedirs('analysis/figures', exist_ok=True)
+os.makedirs('results/figures', exist_ok=True)
 
 # =============================================================================
 # ANALYSIS 1: Untreated Decay by Race/Ethnicity
@@ -53,8 +53,8 @@ ax.set_ylabel('Prevalence of Untreated Decay (%)')
 ax.set_title('Untreated Tooth Decay by Race/Ethnicity\nNHANES 2009-2010')
 ax.set_ylim(0, max(decay_race['ci_upper']) * 1.1)
 plt.tight_layout()
-plt.savefig('analysis/figures/decay_by_race.png', dpi=300, bbox_inches='tight')
-print("\nSaved figure: analysis/figures/decay_by_race.png")
+plt.savefig('results/figures/decay_by_race.png', dpi=300, bbox_inches='tight')
+print("\nSaved figure: results/figures/decay_by_race.png")
 plt.close()
 
 # =============================================================================
@@ -83,8 +83,8 @@ ax.axhline(y=28, color='gray', linestyle='--', alpha=0.5, label='Full dentition 
 ax.legend()
 ax.set_ylim(0, 32)
 plt.tight_layout()
-plt.savefig('analysis/figures/teeth_by_education.png', dpi=300, bbox_inches='tight')
-print("\nSaved figure: analysis/figures/teeth_by_education.png")
+plt.savefig('results/figures/teeth_by_education.png', dpi=300, bbox_inches='tight')
+print("\nSaved figure: results/figures/teeth_by_education.png")
 plt.close()
 
 # =============================================================================
@@ -111,8 +111,8 @@ ax.set_ylabel('Prevalence of Edentulism (%)')
 ax.set_title('Complete Tooth Loss by Poverty Level\nNHANES 2009-2010')
 ax.set_ylim(0, max(edent_pov['ci_upper']) * 1.1)
 plt.tight_layout()
-plt.savefig('analysis/figures/edentulism_by_poverty.png', dpi=300, bbox_inches='tight')
-print("\nSaved figure: analysis/figures/edentulism_by_poverty.png")
+plt.savefig('results/figures/edentulism_by_poverty.png', dpi=300, bbox_inches='tight')
+print("\nSaved figure: results/figures/edentulism_by_poverty.png")
 plt.close()
 
 # =============================================================================
@@ -139,8 +139,8 @@ ax.set_ylabel('Prevalence of Untreated Decay (%)')
 ax.set_title('Untreated Tooth Decay by Age Group\nNHANES 2009-2010')
 ax.set_ylim(0, max(decay_age['ci_upper']) * 1.1)
 plt.tight_layout()
-plt.savefig('analysis/figures/decay_by_age.png', dpi=300, bbox_inches='tight')
-print("\nSaved figure: analysis/figures/decay_by_age.png")
+plt.savefig('results/figures/decay_by_age.png', dpi=300, bbox_inches='tight')
+print("\nSaved figure: results/figures/decay_by_age.png")
 plt.close()
 
 # =============================================================================
@@ -181,16 +181,16 @@ for finding in findings:
     print(finding)
 
 # Save findings to file
-with open('analysis/key_findings.txt', 'w') as f:
+with open('results/key_findings.txt', 'w') as f:
     f.write("KEY FINDINGS: NHANES 2009-2010 Oral Health Disparities\n")
     f.write("="*70 + "\n\n")
     for finding in findings:
         f.write(finding + "\n\n")
 
-print("\nSaved key findings to: analysis/key_findings.txt")
+print("\nSaved key findings to: results/key_findings.txt")
 
 print("\n" + "="*70)
 print("ANALYSIS COMPLETE!")
 print("="*70)
-print(f"Generated 4 figures in analysis/figures/")
-print(f"Generated key findings summary in analysis/key_findings.txt")
+print(f"Generated 4 figures in results/figures/")
+print(f"Generated key findings summary in results/key_findings.txt")

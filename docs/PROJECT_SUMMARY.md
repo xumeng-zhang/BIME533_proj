@@ -1,7 +1,7 @@
 # BIME 533 Final Project - Complete Summary
 ## NHANES Oral Health Disparities Dashboard
 
-**Student:** Xu Meng Zhang
+**Student:** Xumeng Zhang
 **Course:** BIME 533 - Public Health Informatics
 **Institution:** University of Washington
 **Due Date:** March 17, 2026
@@ -18,7 +18,7 @@ All major components have been built and are ready for final deployment and subm
 ## ✅ Completed Tasks Checklist
 
 ### Data & Analysis
-- [x] Create project directory structure (data, notebooks, src, dashboard, analysis, report folders)
+- [x] Create project directory structure (data, notebooks, src, dashboard, results, docs folders)
 - [x] Download NHANES data files (OHXDEN_F.XPT and DEMO_F.XPT)
 - [x] Create requirements.txt with all dependencies
 - [x] Create src/data_processing.py for data loading and merging
@@ -143,7 +143,7 @@ dashboard/
 
 ### 3. Final Report
 
-**File:** `report/final_report.md`
+**File:** `docs/final_report.md`
 
 **Specifications:**
 - **Length:** ~3,800 words (approximately 5 pages, excluding references)
@@ -644,7 +644,7 @@ git push -u origin main
 - Check file path in `2_Explore_Data.py`: should be `Path(__file__).parents[2] / 'data' / 'processed' / 'nhanes_merged.csv'`
 
 **If figures don't show:**
-- Verify `analysis/figures/*.png` files are in GitHub
+- Verify `results/figures/*.png` files are in GitHub
 - Check paths in `1_Overview.py`
 
 ---
@@ -666,7 +666,7 @@ Convert to PDF:
 ```bash
 cd /Users/zhangxumeng/Desktop/BIME533_Proj
 
-pandoc report/final_report.md -o report/final_report.pdf \
+pandoc docs/final_report.md -o docs/final_report.pdf \
   --pdf-engine=xelatex \
   -V geometry:margin=1in \
   -V fontsize=11pt \
@@ -675,7 +675,7 @@ pandoc report/final_report.md -o report/final_report.pdf \
 
 **Option B: Using Word/Google Docs**
 
-1. Open `report/final_report.md` in a text editor
+1. Open `docs/final_report.md` in a text editor
 2. Copy all content
 3. Paste into Google Docs or Microsoft Word
 4. Format as needed (headings, spacing)
@@ -692,7 +692,7 @@ pandoc report/final_report.md -o report/final_report.pdf \
 
 After deployment, update these files:
 
-**In `report/final_report.md`:**
+**In `docs/final_report.md`:**
 
 Find the bottom section (currently says "To be added"):
 ```markdown
@@ -712,7 +712,7 @@ Find the citation section and project overview, update URLs
 
 Then regenerate the PDF:
 ```bash
-pandoc report/final_report.md -o report/final_report.pdf \
+pandoc docs/final_report.md -o docs/final_report.pdf \
   --pdf-engine=xelatex \
   -V geometry:margin=1in \
   -V fontsize=11pt \
@@ -721,7 +721,7 @@ pandoc report/final_report.md -o report/final_report.pdf \
 
 Commit and push changes:
 ```bash
-git add report/final_report.md README.md report/final_report.pdf
+git add docs/final_report.md README.md docs/final_report.pdf
 git commit -m "Add deployment URLs to report and README"
 git push
 ```
@@ -763,7 +763,7 @@ git push
 - [ ] README displays correctly on GitHub
 - [ ] All code files present
 - [ ] `data/processed/nhanes_merged.csv` included
-- [ ] `analysis/figures/*.png` files included
+- [ ] `results/figures/*.png` files included
 - [ ] `.gitignore` working (no .XPT files, no venv/)
 - [ ] requirements.txt complete
 

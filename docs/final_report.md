@@ -9,7 +9,7 @@ March 2026
 
 ## Abstract
 
-Oral health disparities persist across demographic and socioeconomic groups in the United States, yet traditional static reports make it difficult for public health practitioners to explore these differences and inform program planning. This project developed an interactive dashboard using NHANES 2009-2010 data (N=8,189 with dental examinations) to visualize oral health outcomes across population groups. Survey-weighted analyses revealed significant disparities: Mexican Americans had 1.9 times higher prevalence of untreated tooth decay (21.4%) compared to other racial groups; college graduates had 7.2 more teeth on average than those with less than high school education; and individuals below the poverty line had 1.4 times higher rates of complete tooth loss. The dashboard was designed specifically for public health program coordinators with intermediate quantitative skills, implemented six trustworthiness principles including data provenance and methodological transparency, and deployed on Streamlit Community Cloud for easy access without software installation. This tool demonstrates how public health informatics can transform complex survey data into actionable insights for reducing health inequities.
+Oral health disparities persist across demographic and socioeconomic groups in the United States, but traditional static reports make it difficult for public health practitioners to explore these differences and inform intervention planning. This project developed an interactive dashboard using NHANES 2009-2010 data (N=8,189 with dental examinations) to visualize oral health outcomes across population groups. Survey-weighted analyses revealed significant disparities: Mexican Americans had 1.9 times higher prevalence of untreated tooth decay (21.4%) compared to other racial groups; college graduates had 7.2 more teeth on average than those with less than high school education; and individuals below the poverty line had 1.4 times higher rates of complete tooth loss. The dashboard was designed specifically for public health program coordinators with intermediate quantitative skills, implemented six trustworthiness principles including data provenance and methodological transparency, and deployed on Streamlit Community Cloud for easy access without software installation. This tool demonstrates how public health informatics can transform complex survey data into actionable insights for reducing health inequities.
 
 ---
 
@@ -30,7 +30,7 @@ Public health informatics offers an opportunity to address this gap by transform
 ### 2.1 Data Sources and Integration
 
 **NHANES 2009-2010 Overview:**
-NHANES is a continuous, nationally representative, cross-sectional survey of the civilian, non-institutionalized U.S. population conducted by the Centers for Disease Control and Prevention (CDC). The 2009-2010 cycle surveyed 10,537 participants using a complex, multistage probability sampling design with oversampling of certain demographic groups to ensure adequate representation.
+NHANES is a continuous, nationally representative, cross-sectional survey of the civilian, non-institutionalized U.S. population conducted by the Centers for Disease Control and Prevention (CDC) (NCHS, 2012). The 2009-2010 cycle surveyed 10,537 participants using a complex, multistage probability sampling design with oversampling of certain demographic groups to ensure adequate representation (CDC/NCHS, 2009-2010).
 
 **Data Integration Process:**
 This analysis integrated two NHANES datasets using a systematic merge process to address the professor's question: *"How will you integrate these two data sources in the dashboard?"*
@@ -176,9 +176,11 @@ The dashboard is deployed at [Streamlit URL - to be added] and all code is avail
 
 Centers for Disease Control and Prevention (CDC). (2023). Oral Health. Retrieved from https://www.cdc.gov/oral-health/
 
+Centers for Disease Control and Prevention, National Center for Health Statistics (CDC/NCHS). (2009-2010). National Health and Nutrition Examination Survey Data. Hyattsville, MD: U.S. Department of Health and Human Services. Retrieved from https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2009
+
 Dye, B. A., Thornton-Evans, G., Li, X., & Iafolla, T. J. (2015). Dental caries and tooth loss in adults in the United States, 2011–2012. *NCHS Data Brief*, No. 197. Hyattsville, MD: National Center for Health Statistics.
 
-National Center for Health Statistics (NCHS). (2009-2010). National Health and Nutrition Examination Survey Data. Hyattsville, MD: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention. https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2009
+National Center for Health Statistics (NCHS). (2012). *National Health and Nutrition Examination Survey: Analytic Guidelines, 2011-2012*. Hyattsville, MD: Centers for Disease Control and Prevention. Retrieved from https://wwwn.cdc.gov/nchs/nhanes/analyticguidelines.aspx
 
 U.S. Department of Health and Human Services (USDHHS). (2000). *Oral Health in America: A Report of the Surgeon General*. Rockville, MD: National Institute of Dental and Craniofacial Research, National Institutes of Health.
 
@@ -201,6 +203,3 @@ All conceptual decisions (research questions, target users, design principles, i
 **Dashboard URL:** [To be added after deployment to Streamlit Community Cloud]
 **GitHub Repository:** [To be added after creating public repository]
 
----
-
-*Submitted in fulfillment of BIME 533 final project requirements, University of Washington, March 2026.*
