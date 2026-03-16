@@ -9,7 +9,7 @@ from pyreadstat import read_xport
 from pathlib import Path
 
 
-def load_nhanes_data(data_dir='data/raw'):
+def load_nhanes_data(data_dir='data/'):
     """
     Load NHANES 2009-2010 demographic and oral health examination data
 
@@ -224,7 +224,7 @@ def create_demographic_categories(df):
     return df
 
 
-def create_analysis_dataset(data_dir='data/raw', output_path='data/processed/nhanes_merged.csv'):
+def create_analysis_dataset(data_dir='data/', output_path='results/nhanes_merged.csv'):
     """
     Main function to create analysis-ready dataset
 

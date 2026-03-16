@@ -16,7 +16,7 @@ plt.rcParams['figure.figsize'] = (12, 6)
 
 # Load data
 print("Loading data...")
-data = pd.read_csv('data/processed/nhanes_merged.csv')
+data = pd.read_csv('results/nhanes_merged.csv')
 print(f"Loaded {len(data):,} participants\n")
 
 # Create figures directory
