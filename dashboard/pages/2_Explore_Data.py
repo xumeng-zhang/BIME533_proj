@@ -25,7 +25,8 @@ groups. All estimates are survey-weighted and include 95% confidence intervals.
 # Load data
 @st.cache_data
 def load_data():
-    data_path = Path(__file__).parents[2] / 'data' / 'processed' / 'nhanes_merged.csv'
+    # Correct path to data file
+    data_path = Path(__file__).parents[2] / 'results' / 'nhanes_merged.csv'
     return pd.read_csv(data_path)
 
 try:

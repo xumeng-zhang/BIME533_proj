@@ -84,6 +84,35 @@ with col2:
     """)
 
 # =============================================================================
+# STATISTICAL NOTES
+# =============================================================================
+st.markdown("---")
+st.markdown("## 🔢 Statistical Methods")
+
+with st.expander("How we calculate prevalence (for binary outcomes like decay)"):
+    st.markdown("""
+    **For yes/no outcomes:**
+
+    1. Calculate weighted proportion: (sum of weights for "yes") / (total weights)
+    2. Calculate standard error accounting for survey design
+    3. Compute 95% CI: estimate ± 1.96 × standard error
+
+    """)
+
+with st.expander("How we calculate means (for continuous outcomes like tooth count)"):
+    st.markdown("""
+    **For continuous outcomes:**
+
+    1. Calculate weighted mean: (sum of [weight × value]) / (sum of weights)
+    2. Calculate weighted variance
+    3. Compute design-adjusted standard error
+    4. Compute 95% CI: mean ± 1.96 × standard error
+
+    The weighted mean represents the population average, not just the survey sample average.
+    """)
+
+
+# =============================================================================
 # UNDERSTANDING CONFIDENCE INTERVALS
 # =============================================================================
 st.markdown("---")
@@ -93,7 +122,7 @@ st.markdown("""
 All charts show **95% confidence intervals** (error bars). Here's what they mean:
 """)
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("""
@@ -107,17 +136,6 @@ with col1:
 
 with col2:
     st.markdown("""
-    ### How to Compare Groups
-
-    **Non-overlapping CIs** → Likely a significant difference
-
-    **Overlapping CIs** → Difference might not be significant
-
-    This is a rule of thumb, not a formal statistical test.
-    """)
-
-with col3:
-    st.markdown("""
     ### What Affects Width?
 
     - **Sample size:** Smaller groups = wider intervals
@@ -125,51 +143,6 @@ with col3:
     - **Survey design:** Complex designs = wider intervals
     """)
 
-# =============================================================================
-# READING THE CHARTS
-# =============================================================================
-st.markdown("---")
-st.markdown("## 📈 How to Read the Charts")
-
-tab1, tab2 = st.tabs(["Bar Charts", "Understanding Disparities"])
-
-with tab1:
-    st.markdown("""
-    ### Chart Elements
-
-    - **Bar height** = Prevalence (%) or mean value
-    - **Error bars** = 95% confidence interval
-    - **Sample size** = Number of actual participants (hover to see)
-
-    ### Comparing Groups
-
-    1. **Look at bar heights** - Higher is worse for disease outcomes, better for tooth count
-    2. **Check error bars** - Non-overlapping suggests real difference
-    3. **Consider magnitude** - Is the difference large enough to matter?
-
-    ### Example Interpretation
-
-    > "Mexican Americans have 21.4% prevalence of untreated decay (95% CI: 18.6%-24.3%)
-    > compared to Non-Hispanic Whites at 11.6% (95% CI: 9.4%-13.7%). The confidence intervals
-    > don't overlap, indicating a significant difference of 9.8 percentage points (1.8x higher)."
-    """)
-
-with tab2:
-    st.markdown("""
-    ### Measuring Disparities
-
-    **Absolute Difference**
-    - Subtract one group's value from another
-    - Example: 26.0% - 18.1% = 7.9 percentage points
-    - Good for understanding public health burden
-
-    **Relative Ratio**
-    - Divide one group's value by another
-    - Example: 26.0% / 18.1% = 1.4x higher
-    - Good for comparing magnitude across outcomes
-
-    **Both are useful** - the dashboard shows both in the Explore Data section.
-    """)
 
 # =============================================================================
 # LIMITATIONS
@@ -216,36 +189,6 @@ with col2:
     - Clinical decision-making
     """)
 
-# =============================================================================
-# STATISTICAL NOTES
-# =============================================================================
-st.markdown("---")
-st.markdown("## 🔢 Statistical Methods (Brief)")
-
-with st.expander("How we calculate prevalence (for binary outcomes like decay)"):
-    st.markdown("""
-    **For yes/no outcomes:**
-
-    1. Calculate weighted proportion: (sum of weights for "yes") / (total weights)
-    2. Calculate standard error accounting for survey design
-    3. Compute 95% CI: estimate ± 1.96 × standard error
-
-    **Note:** We use simplified variance estimation. Proper analysis would use Taylor
-    linearization with full design variables (strata/PSUs), but our approach gives
-    conservative (slightly wide) confidence intervals.
-    """)
-
-with st.expander("How we calculate means (for continuous outcomes like tooth count)"):
-    st.markdown("""
-    **For continuous outcomes:**
-
-    1. Calculate weighted mean: (sum of [weight × value]) / (sum of weights)
-    2. Calculate weighted variance
-    3. Compute design-adjusted standard error
-    4. Compute 95% CI: mean ± 1.96 × standard error
-
-    The weighted mean represents the population average, not just the survey sample average.
-    """)
 
 # Footer
 st.markdown("---")

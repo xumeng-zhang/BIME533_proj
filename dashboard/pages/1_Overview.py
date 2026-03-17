@@ -16,7 +16,7 @@ disparities across racial/ethnic, socioeconomic, and educational lines.
 """)
 
 # Load key findings
-findings_path = Path(__file__).parents[2] / 'analysis' / 'key_findings.txt'
+findings_path = Path(__file__).parents[2] / 'results' / 'key_findings.txt'
 if findings_path.exists():
     with open(findings_path, 'r') as f:
         findings_text = f.read()
@@ -48,7 +48,8 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "Age"
 ])
 
-figures_dir = Path(__file__).parents[2] / 'analysis' / 'figures'
+# Correct path to figures directory
+figures_dir = Path(__file__).parents[2] / 'results' / 'figures'
 
 with tab1:
     st.markdown("### Untreated Tooth Decay by Race/Ethnicity")

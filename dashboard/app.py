@@ -114,7 +114,7 @@ Use the **sidebar navigation** (← left side) to explore different sections:
 
 1. **📊 Overview** - Summary of key findings (this page)
 2. **🔍 Explore Data** - Interactive visualizations to investigate disparities by different demographic variables
-3. **📖 Methodology** - Learn about data sources, methods, and what makes this dashboard trustworthy
+3. **📖 Methodology** - Learn about data sources, methods, and key concepts
 
 Each page includes:
 - Interactive charts you can explore
@@ -137,10 +137,6 @@ st.markdown("""
 - **Conducted by:** Centers for Disease Control and Prevention (CDC), National Center for
   Health Statistics (NCHS)
 - **Documentation:** [NHANES 2009-2010 Overview](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/overview.aspx?BeginYear=2009)
-
-**Data Files Used:**
-- [DEMO_F: Demographics](https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DEMO_F.htm)
-- [OHXDEN_F: Oral Health - Dentition](https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/OHXDEN_F.htm)
 """)
 
 # Footer
@@ -148,6 +144,7 @@ st.markdown("---")
 st.caption("""
 **BIME 533 Final Project** | University of Washington | March 2026
 Dashboard created with [Streamlit](https://streamlit.io) | Data from [CDC NHANES](https://www.cdc.gov/nchs/nhanes/)
+
 ⚠️ Data is from 2009-2010 and should be interpreted with appropriate temporal context
 """)
 
@@ -155,18 +152,9 @@ Dashboard created with [Streamlit](https://streamlit.io) | Data from [CDC NHANES
 with st.sidebar:
     st.markdown("## About This Dashboard")
     st.markdown("""
+                
     This dashboard presents **survey-weighted** analyses of oral health disparities
     using NHANES 2009-2010 data.
-
-    ### Survey Design Considerations
-
-    All estimates account for the complex survey design including:
-    - Sample weights
-    - Primary sampling units (PSUs)
-    - Stratification
-
-    **Why this matters:** Without survey weights, estimates would be biased due to
-    oversampling of certain demographic groups.
     """)
 
     st.markdown("---")
