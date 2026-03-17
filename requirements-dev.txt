@@ -1,0 +1,20 @@
+# Development and Analysis Requirements
+# Use this for local data processing and analysis
+# NOT needed for Streamlit Cloud deployment
+
+# Include runtime requirements
+-r requirements.txt
+
+# Additional packages for data processing
+scipy==1.14.1
+statsmodels==0.14.4
+patsy==0.5.6
+pyreadstat==1.2.7
+
+# Static visualization (for report figures)
+matplotlib==3.9.2
+seaborn==0.13.2
+kaleido==0.2.1
+
+# Additional utilities
+tzdata==2024.2

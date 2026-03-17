@@ -5,8 +5,15 @@ Handles complex survey design with weights, strata, and PSUs
 
 import pandas as pd
 import numpy as np
-from scipy import stats
 import warnings
+
+# Lazy import for optional dependencies (only needed for statistical tests)
+try:
+    from scipy import stats
+    SCIPY_AVAILABLE = True
+except ImportError:
+    SCIPY_AVAILABLE = False
+    stats = None
 
 
 def weighted_prevalence(data, outcome_var, group_var, weight_var='WTMEC2YR'):
@@ -210,6 +217,8 @@ def test_group_differences(data, outcome_var, group_var, weight_var='WTMEC2YR',
     """
     Test for statistical significance of group differences
 
+    NOTE: Requires scipy. Install with: pip install scipy
+
     Parameters:
     -----------
     data : DataFrame
@@ -227,6 +236,9 @@ def test_group_differences(data, outcome_var, group_var, weight_var='WTMEC2YR',
     --------
     dict : test results with p-value and test statistic
     """
+    if not SCIPY_AVAILABLE:
+        raise ImportError("scipy is required for statistical tests. Install with: pip install scipy")
+
     # Remove missing values
     analysis_df = data[[outcome_var, group_var, weight_var]].dropna()
 

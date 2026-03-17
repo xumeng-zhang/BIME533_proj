@@ -1,15 +1,15 @@
 """
-Methodology and Trust Page - Addressing Trustworthiness and Transparency
+Methodology - Improve Trustworthiness and Transparency
 """
 
 import streamlit as st
 
 st.set_page_config(page_title="Methodology", page_icon="📖", layout="wide")
 
-st.title("📖 Methodology & Trustworthiness")
+st.title("📖 Methodology")
 
 st.markdown("""
-This page explains the data sources, methods, and design principles that make this
+This page explains the data sources, methods, and design principles to make this
 dashboard trustworthy and reliable for public health decision-making.
 """)
 

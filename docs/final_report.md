@@ -9,7 +9,7 @@ March 2026
 
 ## Abstract
 
-Oral health disparities persist across demographic and socioeconomic groups in the United States, but traditional static reports make it difficult for public health practitioners to explore these differences and inform intervention planning. This project developed an interactive dashboard using NHANES 2009-2010 data (N=8,189 with dental examinations) to visualize oral health outcomes across population groups. Survey-weighted analyses revealed significant disparities: Mexican Americans had 1.9 times higher prevalence of untreated tooth decay (21.4%) compared to other racial groups; college graduates had 7.2 more teeth on average than those with less than high school education; and individuals below the poverty line had 1.4 times higher rates of complete tooth loss. The dashboard was designed specifically for public health program coordinators with intermediate quantitative skills, implemented six trustworthiness principles including data provenance and methodological transparency, and deployed on Streamlit Community Cloud for easy access without software installation. This tool demonstrates how public health informatics can transform complex survey data into actionable insights for reducing health inequities.
+Oral health disparities persist across demographic and socioeconomic groups in the United States, but traditional static reports make it difficult for public health practitioners to explore these differences and inform intervention planning. This project developed an interactive dashboard using NHANES 2009-2010 data (N=8,189 with dental examinations) to visualize oral health outcomes across population groups. Survey-weighted analyses revealed significant disparities: Mexican Americans had 1.9 times higher prevalence of untreated tooth decay (21.4%) compared to other racial groups (11.1%); college graduates had 7.2 more teeth (23.3) on average than those with less than high school education (16.1); and individuals below the poverty line had 1.4 times higher rates of complete tooth loss (26.0%) than those above the poverty line (18.1%). The dashboard was designed specifically for public health program coordinators and policy makers with intermediate quantitative skills, and deployed on Streamlit Community Cloud <https://bime533proj.streamlit.app/Explore_Data> for easy access without software installation.
 
 ---
 
@@ -19,9 +19,9 @@ Oral diseases are among the most common chronic conditions in the United States,
 
 Public health informatics offers an opportunity to address this gap by transforming complex survey data into interactive, accessible visualizations. However, effective dashboards must be carefully designed with specific user needs in mind and built on principles of trustworthiness and transparency.
 
-**Target Users:** This dashboard was designed specifically for **public health program coordinators** at state and local health departments who need to identify oral health disparities to prioritize interventions, support grant applications, and allocate resources. These users typically have intermediate quantitative skills (comfortable interpreting percentages, bar charts, and confidence intervals) and need actionable insights rather than raw statistical tables.
+**Target Users:** This dashboard was designed specifically for **public health program coordinators and policy makers** who need to identify oral health disparities to prioritize interventions, support grant applications, and allocate resources. These users typically have intermediate quantitative skills and need actionable insights rather than raw statistical tables.
 
-**Project Aim:** To develop an interactive, trustworthy dashboard that enables public health practitioners to explore associations between oral health outcomes (untreated tooth decay, tooth loss, dental restorations) and demographic/socioeconomic characteristics (race/ethnicity, education, poverty level, age) using NHANES 2009-2010 data.
+**Project Aim:** To develop an interactive dashboard that enables public health practitioners to explore associations between oral health outcomes (untreated tooth decay, tooth loss, dental restorations) and demographic/socioeconomic characteristics (race/ethnicity, education, poverty level, age) using NHANES 2009-2010 data.
 
 ---
 
@@ -33,23 +33,22 @@ Public health informatics offers an opportunity to address this gap by transform
 NHANES is a continuous, nationally representative, cross-sectional survey of the civilian, non-institutionalized U.S. population conducted by the Centers for Disease Control and Prevention (CDC) (NCHS, 2012). The 2009-2010 cycle surveyed 10,537 participants using a complex, multistage probability sampling design with oversampling of certain demographic groups to ensure adequate representation (CDC/NCHS, 2009-2010).
 
 **Data Integration Process:**
-This analysis integrated two NHANES datasets using a systematic merge process to address the professor's question: *"How will you integrate these two data sources in the dashboard?"*
+This analysis integrated two datasets from the National Health and Nutrition Examination Survey (NHANES). Demographic information (n = 10,537) was obtained from <https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/DEMO_F.xpt>, which includes variables such as age, gender, race/ethnicity, education level, income-to-poverty ratio, survey weights (WTMEC2YR, WTINT2YR), and survey design variables (SDMVSTRA, SDMVPSU). Oral health information (n = 8,189) was obtained from <https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2009/DataFiles/OHXDEN_F.xpt> , which contains tooth-level measures including tooth counts, untreated decay, restorations, and sealants. The two datasets were merged using the participant identifier SEQN, resulting in a final analytic dataset of 8,189 participants with both demographic and oral health data.
 
-| Step | Dataset | Sample Size | Variables |
-|------|---------|-------------|-----------|
-| 1. Load Demographics | DEMO_F.XPT | 10,537 participants | Age, gender, race/ethnicity, education, income-to-poverty ratio, survey weights (WTMEC2YR, WTINT2YR), design variables (SDMVSTRA, SDMVPSU) |
-| 2. Load Oral Health | OHXDEN_F.XPT | 8,189 participants | Tooth counts (OHX01TC-OHX32TC), untreated decay (OHXDECAY), restorations (OHXREST), sealants (OHXSEAL) |
-| 3. Merge on SEQN | Left join | 8,189 participants | Combined demographic and oral health data |
+**Missing Data:** 
+Not all participants received full dental assessments; the untreated decay variable (OHXDECAY) was available for 3,058 participants (37% of those examined), primarily adults
 
-**Integration Details:**
-- **Common Identifier:** SEQN (respondent sequence number) uniquely links participants across datasets
-- **Merge Type:** Left join with demographics as base, keeping only participants who completed dental examinations (77.7% of total sample)
-- **Rationale:** Oral health analyses require examination data, and the MEC examination weight (WTMEC2YR) appropriately accounts for non-response to the mobile examination center visit
-- **Missing Data:** Not all participants received full dental assessments; the untreated decay variable (OHXDECAY) was available for 3,058 participants (37% of those examined), primarily adults
-
-**Created Variables:**
-- *Demographic categories:* Age groups (<20, 20-34, 35-49, 50-64, 65+), race/ethnicity (NH White, NH Black, Mexican American, Other Hispanic, Other), education level (Less than HS, HS/GED, Some college, College graduate), poverty categories (Below poverty <1.0 PIR, Near poverty 1.0-1.99, Above poverty ≥2.0)
-- *Oral health outcomes:* Total teeth present (count of permanent teeth), has untreated decay (binary, from OHXDECAY=1), edentulous (binary, total_teeth=0), has restorations (binary, from OHXREST=1)
+**Demographic Variables:**
+- Age groups: <20, 20-34, 35-49, 50-64, 65+
+- race/ethnicity: NH White, NH Black, Mexican American, Other Hispanic, Other 
+- education level: Less than HS, HS/GED, Some college, College graduate
+- poverty categories: Below poverty <1.0 PIR, Near poverty 1.0-1.99, Above poverty ≥2.0
+  
+**Oral health outcomes:** 
+- Total teeth present: count of permanent teeth 
+- has untreated decay: binary (OHXDECAY=1)
+- edentulous: binary (total_teeth=0)
+- has restorations: binary (OHXREST=1)
 
 ### 2.2 Statistical Analysis
 
@@ -59,11 +58,16 @@ All analyses used survey weights to account for NHANES's complex sampling design
 - **Sample Weights:** WTMEC2YR (MEC examination weight) for all oral health outcomes, as these require examination data
 - **Prevalence Estimation:** For binary outcomes (e.g., has untreated decay), weighted prevalence = Σ(weight × outcome) / Σ(weight)
 - **Mean Estimation:** For continuous outcomes (e.g., number of teeth), weighted mean = Σ(weight × value) / Σ(weight)
-- **Confidence Intervals:** Calculated using design-adjusted standard errors accounting for stratification and clustering (simplified Taylor linearization approximation with effective sample size correction)
+<!-- - **Confidence Intervals:** Calculated using design-adjusted standard errors accounting for stratification and clustering (simplified Taylor linearization approximation with effective sample size correction) -->
 
-**Software:** Python 3.11 with pandas (data manipulation), pyreadstat (reading SAS transport files), statsmodels (survey-weighted statistics), matplotlib and seaborn (static figures), plotly (interactive charts), and streamlit (dashboard framework).
-
-**Disparity Metrics:** We calculated both absolute differences (prevalence₁ - prevalence₂) and relative ratios (prevalence₁ / prevalence₂) to quantify disparities, using the group with the best outcome as the reference.
+**Software:** 
+- Python 3.11
+- pandas (data manipulation)
+- pyreadstat (reading SAS transport files)
+- statsmodels (survey-weighted statistics)
+- matplotlib and seaborn (static figures)
+- plotly (interactive charts)
+- streamlit (dashboard framework).
 
 ---
 
@@ -105,44 +109,22 @@ Complete tooth loss represents the most severe oral health outcome, affecting nu
 
 This project identified substantial and persistent oral health disparities across multiple dimensions of social stratification. Mexican Americans and Non-Hispanic Blacks face nearly twice the burden of untreated tooth decay compared to other groups. Educational attainment shows a strong dose-response relationship with oral health, with each additional level of education associated with better outcomes. Economic disadvantage compounds these disparities, with those in poverty experiencing significantly higher rates of complete tooth loss.
 
-These patterns are consistent with prior literature documenting oral health inequities (Dye et al., 2015; USDHHS, 2000) but extend this work by quantifying disparities using rigorous survey-weighted methods and presenting findings in an accessible, interactive format.
-
 ### 4.2 Dashboard Design for Trustworthiness
 
-A key contribution of this project is the systematic implementation of trustworthiness principles in dashboard design, directly addressing the professor's question: *"What makes a dashboard trustworthy?"*
+The dashboard was built with transparency and rigorous uncertainty communication as core design principles.
 
-We implemented **six pillars of trustworthiness:**
-
-**1. Data Provenance:**
-All data sources are clearly cited with direct links to CDC NHANES documentation. We acknowledge NHANES as a gold-standard surveillance system and specify the exact data collection period (2009-2010), enabling users to judge relevance and timeliness.
-
-**2. Methodological Transparency:**
+**Methodological Transparency:**
 The dashboard includes a comprehensive Methodology page explaining survey weighting, data integration, confidence interval calculation, and statistical assumptions. We use plain language to explain why survey weights matter and how they affect estimates, making methods accessible to users with intermediate quantitative skills.
 
-**3. Uncertainty Communication:**
+**Uncertainty Communication:**
 All estimates include 95% confidence intervals displayed as error bars on charts. We provide explanations of what confidence intervals mean (uncertainty about population values, not individual variation) and how to interpret overlapping vs. non-overlapping intervals. Sample sizes are shown to help users gauge precision.
 
-**4. Professional Design:**
-Charts use colorblind-friendly palettes (blues, greens, corals), consistent formatting across pages, clear axis labels with units, and contextual tooltips. Interactive features (hover for values, click to download) enhance usability without sacrificing clarity.
-
-**5. Reproducibility:**
-All analysis code is available on GitHub with documented software versions (Python 3.11, specific package versions in requirements.txt). Data processing steps are scripted and repeatable. Anyone can download NHANES data, run the code, and verify results.
-
-**6. Appropriate Use Guidance:**
-The dashboard explicitly states its target audience (public health program coordinators), appropriate uses (identifying disparities, priority setting), and inappropriate uses (individual-level prediction, causal inference). Limitations section addresses data age, cross-sectional design, and missing data.
-
-**Target User Rationale (Addressing Professor Feedback #1):**
-We chose public health program coordinators as the primary audience because they: (1) make resource allocation decisions that directly affect programs; (2) need evidence to support grant applications and justify interventions; (3) typically have intermediate quantitative literacy but not advanced statistical training; and (4) benefit from exploratory tools that allow flexible investigation of disparities across different demographic cuts. This user profile guided design decisions including use of percentages over odds ratios, plain language explanations over statistical jargon, and pre-calculated summary statistics rather than requiring users to conduct their own analyses.
 
 ### 4.3 Limitations
 
-**Data Age:** NHANES 2009-2010 data are over 15 years old. Oral health patterns may have changed since then, particularly following Affordable Care Act implementation (2010) which expanded children's dental coverage. Current absolute prevalence rates may differ, though relative disparities often persist.
+**Cross-Sectional Design:** We cannot establish causation. While education is associated with better oral health, this could reflect unmeasured confounding by income, health literacy, access to care, or other factors. Further analysis such as longitudinal study might be needed to disentangle causal pathways.
 
-**Cross-Sectional Design:** We cannot establish causation. While education is associated with better oral health, this could reflect unmeasured confounding by income, health literacy, access to care, or other factors. Longitudinal data would be needed to disentangle causal pathways.
-
-**Missing Data:** Not all participants received full dental examinations (77.7% did), and the decay assessment (OHXDECAY) was only available for 37% of examined participants. If missingness is related to oral health status (e.g., edentulous people skipping decay assessment), this could introduce bias.
-
-**Simplified Survey Design Adjustment:** While we use survey weights, our confidence interval estimation uses a simplified effective sample size approximation rather than full Taylor linearization with design strata and PSUs. This produces conservative (slightly wider) CIs but may not fully capture design effects.
+**Missing Data:** Not all participants received full dental examinations (77.7% did), and the decay assessment (OHXDECAY) was only available for 37% of examined participants. If missingness is related to oral health status, this could introduce bias.
 
 ### 4.4 Implications for Public Health Practice
 
@@ -156,50 +138,36 @@ These findings have several actionable implications:
 
 **Life Course Approach:** Widening disparities with age suggest that prevention programs need to reach young adults and middle-aged populations, not just children and seniors.
 
-**Dashboard as Planning Tool:** By enabling interactive exploration, this dashboard allows coordinators to identify priority populations specific to their jurisdiction and generate evidence-based justifications for funding requests.
-
-### 4.5 Future Enhancements
-
-Future versions could incorporate: (1) more recent NHANES cycles to show trends over time; (2) geographic variation using state-level data supplements; (3) intersectional analyses (e.g., race × poverty); (4) cost-effectiveness modeling to prioritize interventions; and (5) linkage to local resources (e.g., federally qualified health centers offering dental services).
-
 ---
 
 ## 5. Conclusion
 
 Oral health disparities in the United States are substantial, patterned by race/ethnicity, education, and economic status. This project demonstrates that public health informatics tools—specifically, well-designed, trustworthy interactive dashboards—can make complex surveillance data more accessible and actionable for public health practitioners. By implementing principles of transparency, appropriate design for target users, and rigorous survey-weighted methods, the NHANES Oral Health Disparities Dashboard provides a model for translating data into practice to advance health equity.
 
-The dashboard is deployed at [Streamlit URL - to be added] and all code is available at [GitHub URL - to be added].
+The dashboard is deployed at [Streamlit URL - to be added].
 
 ---
 
 ## References
 
-Centers for Disease Control and Prevention (CDC). (2023). Oral Health. Retrieved from https://www.cdc.gov/oral-health/
+Centers for Disease Control and Prevention (CDC). (2023). Oral Health. <https://www.cdc.gov/oral-health/>
 
-Centers for Disease Control and Prevention, National Center for Health Statistics (CDC/NCHS). (2009-2010). National Health and Nutrition Examination Survey Data. Hyattsville, MD: U.S. Department of Health and Human Services. Retrieved from https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2009
+Centers for Disease Control and Prevention, National Center for Health Statistics (CDC/NCHS). (2009-2010). National Health and Nutrition Examination Survey Data. Hyattsville, MD: U.S. Department of Health and Human Services. <https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2009>
 
-Dye, B. A., Thornton-Evans, G., Li, X., & Iafolla, T. J. (2015). Dental caries and tooth loss in adults in the United States, 2011–2012. *NCHS Data Brief*, No. 197. Hyattsville, MD: National Center for Health Statistics.
-
-National Center for Health Statistics (NCHS). (2012). *National Health and Nutrition Examination Survey: Analytic Guidelines, 2011-2012*. Hyattsville, MD: Centers for Disease Control and Prevention. Retrieved from https://wwwn.cdc.gov/nchs/nhanes/analyticguidelines.aspx
-
-U.S. Department of Health and Human Services (USDHHS). (2000). *Oral Health in America: A Report of the Surgeon General*. Rockville, MD: National Institute of Dental and Craniofacial Research, National Institutes of Health.
 
 ---
 
 ## AI Use Statement
 
-This project was completed with assistance from Claude Code (Anthropic), an AI coding assistant. Claude Code was used for:
-- Data processing pipeline development (Python scripts for loading and merging NHANES data)
-- Statistical analysis code (survey-weighted prevalence and mean calculations)
-- Dashboard implementation (Streamlit application structure and interactive visualizations)
-- Report writing and editing (draft structure, literature integration, clarity improvements)
+This project was developed through extensive iterative collaboration with Claude Code, which was used throughout the project to support multiple stages of development. Claude Code assisted with:
 
-All conceptual decisions (research questions, target users, design principles, interpretation of results) were made by the student author. AI-generated code was reviewed, tested, and modified as needed. Statistical methods and results were validated against NHANES documentation and public health literature. The student takes full responsibility for all content, including any errors or omissions.
+- Developing the data processing pipeline, including Python scripts for loading, cleaning, and merging NHANES datasets
 
+- Writing statistical analysis code, such as survey-weighted prevalence and mean calculations
+
+- Implementing the dashboard, including the Streamlit application structure and interactive visualizations
+
+- Supporting report editing, and improving clarity and organization of the written analysis
+
+The development process involved many rounds of interaction with the model, during which generated code and text were carefully reviewed, tested, revised, and refined by Xumeng. All conceptual and analytical decisions, including the idea proposal, dashboard design, analytic approaches, and result interpretation, were made by myself.
 ---
-
-**Word Count:** ~3,800 words (approximately 5 pages excluding references and AI statement)
-
-**Dashboard URL:** [To be added after deployment to Streamlit Community Cloud]
-**GitHub Repository:** [To be added after creating public repository]
-

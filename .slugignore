@@ -1,0 +1,26 @@
+# Streamlit Cloud - Exclude from deployment to reduce slug size
+*.pyc
+__pycache__/
+.git/
+.gitignore
+.DS_Store
+*.md
+docs/
+venv/
+.venv/
+env/
+*.ipynb
+.ipynb_checkpoints/
+tests/
+*.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+.vscode/
+.idea/
+*.log
+analysis/figures/
+results/
+requirements-dev.txt
