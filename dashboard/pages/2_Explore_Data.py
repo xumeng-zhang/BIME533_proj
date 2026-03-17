@@ -100,6 +100,22 @@ try:
             y_col = 'mean'
             y_label = 'Mean Number of Teeth'
 
+    # Check if we got valid results
+    if stats_df.empty or 'group' not in stats_df.columns:
+        st.error(f"""
+        **No data available for this combination!**
+
+        - Outcome: {outcome}
+        - Demographic: {demographic}
+
+        This might be due to missing data for these variables. Try a different combination.
+
+        Debug info:
+        - Stats DataFrame shape: {stats_df.shape}
+        - Stats DataFrame columns: {stats_df.columns.tolist() if not stats_df.empty else 'empty'}
+        """)
+        st.stop()
+
     # Main content area
     st.markdown(f"## Results: {outcome.replace('_', ' ').title()} by {demographic.replace('_', ' ').title()}")
 

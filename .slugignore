@@ -21,6 +21,4 @@ build/
 .vscode/
 .idea/
 *.log
-analysis/figures/
-results/
 requirements-dev.txt
