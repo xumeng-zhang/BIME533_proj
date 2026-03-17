@@ -1,15 +1,16 @@
 # NHANES Oral Health Dashboard - Streamlit Cloud Requirements
-# Optimized for fast deployment (removed heavy dependencies not needed at runtime)
-
-# Core data handling
-pandas==2.2.3
-numpy==1.26.4
+# Using older stable versions with guaranteed binary wheels for Python 3.10
 
 # Dashboard framework
-streamlit==1.39.0
+streamlit==1.28.0
 
-# Interactive visualizations (only package needed for charts)
-plotly==5.24.1
+# Core data handling - older versions have better wheel availability
+pandas==2.0.3
+numpy==1.24.4
+
+# Interactive visualizations
+plotly==5.17.0
 
 # Utilities
-python-dateutil==2.9.0
+python-dateutil==2.8.2
+pytz

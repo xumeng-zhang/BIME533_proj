@@ -1,0 +1,21 @@
+[server]
+# Performance optimizations
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 50
+
+[browser]
+gatherUsageStats = false
+
+[client]
+showErrorDetails = false
+toolbarMode = "minimal"
+
+[runner]
+# Optimize execution
+magicEnabled = false
+fastReruns = true
+
+[logger]
+# Reduce logging overhead
+level = "warning"
