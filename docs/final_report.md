@@ -9,7 +9,7 @@ March 2026
 
 ## Abstract
 
-Oral health disparities persist across demographic and socioeconomic groups in the United States, but traditional static reports make it difficult for public health practitioners to explore these differences and inform intervention planning. This project developed an interactive dashboard using NHANES 2009-2010 data (N=8,189 with dental examinations) to visualize oral health outcomes across population groups. Survey-weighted analyses revealed significant disparities: Mexican Americans had 1.9 times higher prevalence of untreated tooth decay (21.4%) compared to other racial groups (11.1%); college graduates had 7.2 more teeth (23.3) on average than those with less than high school education (16.1); and individuals below the poverty line had 1.4 times higher rates of complete tooth loss (26.0%) than those above the poverty line (18.1%). The dashboard was designed specifically for public health program coordinators and policy makers with intermediate quantitative skills, and deployed on Streamlit Community Cloud <https://bime533proj.streamlit.app/Explore_Data> for easy access without software installation.
+Oral health disparities persist across demographic and socioeconomic groups in the United States, but traditional static reports make it difficult for public health practitioners to explore these differences and inform intervention planning. This project developed an interactive dashboard using NHANES 2009-2010 data (N=8,189 with dental examinations) to visualize oral health outcomes across population groups. Survey-weighted analyses revealed significant disparities: Mexican Americans had 1.9 times higher prevalence of untreated tooth decay (21.4%) compared to other racial groups (11.1%); college graduates had 7.2 more teeth (23.3) on average than those with less than high school education (16.1); and individuals below the poverty line had 1.4 times higher rates of complete tooth loss (26.0%) than those above the poverty line (18.1%). The dashboard was designed specifically for public health program coordinators and policy makers with intermediate quantitative skills, and deployed on Streamlit Community Cloud <https://bime533proj-qeaztkfnzapl6urxnuyvbt.streamlit.app/> for easy access without software installation.
 
 ---
 
@@ -144,7 +144,7 @@ These findings have several actionable implications:
 
 Oral health disparities in the United States are substantial, patterned by race/ethnicity, education, and economic status. This project demonstrates that public health informatics tools—specifically, well-designed, trustworthy interactive dashboards—can make complex surveillance data more accessible and actionable for public health practitioners. By implementing principles of transparency, appropriate design for target users, and rigorous survey-weighted methods, the NHANES Oral Health Disparities Dashboard provides a model for translating data into practice to advance health equity.
 
-The dashboard is deployed at [Streamlit URL - to be added].
+The dashboard is deployed at <https://bime533proj-qeaztkfnzapl6urxnuyvbt.streamlit.app/>.
 
 ---
 

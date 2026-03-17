@@ -102,17 +102,21 @@ try:
 
     # Check if we got valid results
     if stats_df.empty or 'group' not in stats_df.columns:
-        st.error(f"""
-        **No data available for this combination!**
+        st.warning(f"""
+        ### No Data Available
 
-        - Outcome: {outcome}
-        - Demographic: {demographic}
+        There is insufficient data for the selected combination:
+        - **Outcome:** {outcome.replace('_', ' ').title()}
+        - **Demographic:** {demographic.replace('_', ' ').title()}
 
-        This might be due to missing data for these variables. Try a different combination.
+        **Why this happens:**
+        - Many participants did not have complete data for all oral health assessments
+        - For example, only about 37% of participants had decay assessments
 
-        Debug info:
-        - Stats DataFrame shape: {stats_df.shape}
-        - Stats DataFrame columns: {stats_df.columns.tolist() if not stats_df.empty else 'empty'}
+        **What to try:**
+        - Select a different outcome (e.g., "Average Number of Teeth Present" has more data)
+        - Try a different demographic variable
+        - The combinations that work best are shown in the Overview page
         """)
         st.stop()
 
