@@ -1,2 +1,0 @@
-# System packages for Streamlit Cloud
-# Keep this minimal - no build tools needed since we use binary wheels
