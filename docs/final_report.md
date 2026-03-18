@@ -1,9 +1,7 @@
 # NHANES Oral Health Disparities Dashboard: An Interactive Tool for Exploring Health Inequities
 
 **Xumeng Zhang**
-BIME 533 - Public Health Informatics
-University of Washington
-March 2026
+   BIME 533 | March 2026
 
 ---
 
@@ -60,15 +58,6 @@ All analyses used survey weights to account for NHANES's complex sampling design
 - **Mean Estimation:** For continuous outcomes (e.g., number of teeth), weighted mean = Σ(weight × value) / Σ(weight)
 <!-- - **Confidence Intervals:** Calculated using design-adjusted standard errors accounting for stratification and clustering (simplified Taylor linearization approximation with effective sample size correction) -->
 
-**Software:** 
-- Python 3.11
-- pandas (data manipulation)
-- pyreadstat (reading SAS transport files)
-- statsmodels (survey-weighted statistics)
-- matplotlib and seaborn (static figures)
-- plotly (interactive charts)
-- streamlit (dashboard framework).
-
 ---
 
 ## 3. Results
@@ -81,25 +70,25 @@ Overall oral health burden was substantial: 17.4% had untreated tooth decay (amo
 
 ### 3.2 Racial/Ethnic Disparities in Untreated Tooth Decay
 
-**Figure 1** shows significant racial/ethnic disparities in untreated tooth decay. Mexican Americans had the highest prevalence at 21.4% (95% CI: 18.6%-24.3%), followed by Non-Hispanic Blacks at 21.0% (95% CI: 17.7%-24.2%). In contrast, Non-Hispanic Whites had 11.6% prevalence (95% CI: 9.4%-13.7%), and Other Hispanic and Other Race groups had similar rates around 11%. This represents a **1.9-fold disparity** between the highest and lowest prevalence groups, translating to an absolute difference of 10.3 percentage points.
+Race/Ethnicity figure in Overview section shows significant racial/ethnic disparities in untreated tooth decay. Mexican Americans had the highest prevalence at 21.4% (95% CI: 18.6%-24.3%), followed by Non-Hispanic Blacks at 21.0% (95% CI: 17.7%-24.2%). In contrast, Non-Hispanic Whites had 11.6% prevalence (95% CI: 9.4%-13.7%), and Other Hispanic and Other Race groups had similar rates around 11%. This represents a **1.9-fold disparity** between the highest and lowest prevalence groups, translating to an absolute difference of 10.3 percentage points.
 
 These differences were statistically significant, as evidenced by non-overlapping 95% confidence intervals. From a public health perspective, this means that among Mexican Americans who received a dental assessment, more than 1 in 5 had untreated tooth decay—nearly double the rate of other groups.
 
 ### 3.3 Education Gradient in Oral Health
 
-**Figure 2** demonstrates a clear education gradient in average number of teeth present. College graduates had a mean of 23.3 teeth (95% CI: 22.6-24.0), compared to 16.1 teeth (95% CI: 15.3-16.9) among those with less than high school education—a difference of **7.2 teeth**, or 25% of full dentition. High school graduates and those with some college fell between these extremes at 17.7 and 19.8 teeth, respectively, showing a dose-response relationship.
+Education figure in Overview section demonstrates a clear education gradient in average number of teeth present. College graduates had a mean of 23.3 teeth (95% CI: 22.6-24.0), compared to 16.1 teeth (95% CI: 15.3-16.9) among those with less than high school education—a difference of **7.2 teeth**, or 25% of full dentition. High school graduates and those with some college fell between these extremes at 17.7 and 19.8 teeth, respectively, showing a dose-response relationship.
 
 This finding highlights the strong association between educational attainment and oral health outcomes. Those with the least education have lost, on average, 12 of their 28 permanent teeth, compared to only 5 teeth lost among college graduates.
 
 ### 3.4 Poverty and Complete Tooth Loss
 
-**Figure 3** reveals the relationship between poverty and edentulism (complete tooth loss). Individuals living below the poverty line had a 26.0% prevalence of edentulism (95% CI: 23.6%-28.3%), compared to 18.1% (95% CI: 16.6%-19.7%) among those above the poverty line—a **1.4-fold disparity**. Those near poverty (1.0-1.99 PIR) had an intermediate prevalence of 25.4%.
+Poverty figure in Overview section reveals the relationship between poverty and edentulism (complete tooth loss). Individuals living below the poverty line had a 26.0% prevalence of edentulism (95% CI: 23.6%-28.3%), compared to 18.1% (95% CI: 16.6%-19.7%) among those above the poverty line—a **1.4-fold disparity**. Those near poverty (1.0-1.99 PIR) had an intermediate prevalence of 25.4%.
 
 Complete tooth loss represents the most severe oral health outcome, affecting nutrition, speech, appearance, and quality of life. The finding that more than one quarter of those living in poverty have lost all their teeth underscores the substantial burden in this population.
 
 ### 3.5 Age Patterns
 
-**Figure 4** shows that untreated decay prevalence varies by age group. Among those under 20, prevalence was 14.3% (95% CI: 12.8%-15.8%). Age-specific patterns (not shown due to space) revealed that disparities by race/ethnicity and socioeconomic status widened with age, suggesting cumulative disadvantage over the life course.
+Age figure in Overview section shows that untreated decay prevalence varies by age group. Among those under 20, prevalence was 14.3% (95% CI: 12.8%-15.8%). Age-specific patterns (not shown due to space) revealed that disparities by race/ethnicity and socioeconomic status widened with age, suggesting cumulative disadvantage over the life course.
 
 ---
 
@@ -107,17 +96,11 @@ Complete tooth loss represents the most severe oral health outcome, affecting nu
 
 ### 4.1 Principal Findings
 
-This project identified substantial and persistent oral health disparities across multiple dimensions of social stratification. Mexican Americans and Non-Hispanic Blacks face nearly twice the burden of untreated tooth decay compared to other groups. Educational attainment shows a strong dose-response relationship with oral health, with each additional level of education associated with better outcomes. Economic disadvantage compounds these disparities, with those in poverty experiencing significantly higher rates of complete tooth loss.
+This project identified substantial and persistent oral health disparities across multiple dimensions of social stratification. Mexican Americans and Non-Hispanic Blacks face nearly twice the burden of untreated tooth decay compared to other groups. Education shows a strong dose-response relationship with oral health, with each additional level of education associated with better outcomes. Economic disadvantage compounds these disparities, with those in poverty experiencing significantly higher rates of complete tooth loss.
 
-### 4.2 Dashboard Design for Trustworthiness
+### 4.2 Dashboard Design with Methodological Transparency
 
-The dashboard was built with transparency and rigorous uncertainty communication as core design principles.
-
-**Methodological Transparency:**
-The dashboard includes a comprehensive Methodology page explaining survey weighting, data integration, confidence interval calculation, and statistical assumptions. We use plain language to explain why survey weights matter and how they affect estimates, making methods accessible to users with intermediate quantitative skills.
-
-**Uncertainty Communication:**
-All estimates include 95% confidence intervals displayed as error bars on charts. We provide explanations of what confidence intervals mean (uncertainty about population values, not individual variation) and how to interpret overlapping vs. non-overlapping intervals. Sample sizes are shown to help users gauge precision.
+The dashboard was built with transparency and rigorous communication as core design principles. The dashboard includes a comprehensive Methodology page explaining survey weighting, data integration, confidence interval calculation, and statistical assumptions. We use plain language to explain why survey weights matter and how they affect estimates, making methods accessible to users with intermediate quantitative skills.
 
 
 ### 4.3 Limitations
@@ -170,4 +153,6 @@ This project was developed through extensive iterative collaboration with Claude
 - Supporting report editing, and improving clarity and organization of the written analysis
 
 The development process involved many rounds of interaction with the model, during which generated code and text were carefully reviewed, tested, revised, and refined by Xumeng. All conceptual and analytical decisions, including the idea proposal, dashboard design, analytic approaches, and result interpretation, were made by myself.
+
+
 ---

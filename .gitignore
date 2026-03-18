@@ -1,6 +1,9 @@
 # Data files (too large for GitHub)
 data
 
+# Files only for submission
+submit
+
 # Python
 venv/
 __pycache__/

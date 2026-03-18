@@ -4,7 +4,7 @@ An interactive public health informatics dashboard visualizing oral health dispa
 
 **BIME 533 Final Project** | University of Washington | March 2026
 
-## 🎯 Project Overview
+## Project Overview
 
 This project presents an interactive dashboard that helps public health program coordinators explore disparities in oral health outcomes across different population groups in the United States. Using data from the National Health and Nutrition Examination Survey (NHANES) 2009-2010, the dashboard reveals significant differences in oral health by race/ethnicity, education level, income, and age.
 
@@ -15,7 +15,7 @@ This project presents an interactive dashboard that helps public health program 
 - **1.4x** higher rate of complete tooth loss for those below poverty line
 - **17.4%** of the population has untreated tooth decay; **23.1%** have lost all their teeth
 
-## 📊 Dashboard Features
+## Dashboard Features
 
 - **Interactive Visualizations**: Explore disparities by different demographic variables
 - **Survey-Weighted Analysis**: All estimates account for NHANES's complex sampling design
@@ -24,7 +24,7 @@ This project presents an interactive dashboard that helps public health program 
 - **Downloadable Data**: Export results for reports and presentations
 - **Trustworthy Design**: Transparent methods, clear data sources, appropriate use guidance
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -63,7 +63,7 @@ This project presents an interactive dashboard that helps public health program 
 
 The dashboard will open in your default web browser at `http://localhost:8501`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 BIME533_Proj/
@@ -92,7 +92,7 @@ BIME533_Proj/
 └── README.md                     # This file
 ```
 
-## 📚 Data Sources
+## Data Sources
 
 **National Health and Nutrition Examination Survey (NHANES) 2009-2010**
 
@@ -113,7 +113,7 @@ Or manually:
 2. Download DEMO_F.xpt and OHXDEN_F.xpt
 3. Place in `data/raw/` directory (rename with .XPT extension if needed)
 
-## 🔬 Methods
+## Methods
 
 ### Survey-Weighted Analysis
 
@@ -147,7 +147,7 @@ python generate_analysis.py
 streamlit run dashboard/app.py
 ```
 
-## 📖 Documentation
+## Documentation
 
 ### For Users
 
@@ -169,7 +169,7 @@ This dashboard is designed for **public health program coordinators** at state a
 - Prioritize intervention programs
 - Have intermediate quantitative literacy (comfortable with percentages, bar charts, confidence intervals)
 
-## ⚠️ Limitations
+## Limitations
 
 - **Data Age**: NHANES 2009-2010 (over 15 years old)
 - **Cross-Sectional**: Cannot establish causation
@@ -178,41 +178,6 @@ This dashboard is designed for **public health program coordinators** at state a
 
 See the dashboard's Methodology page for detailed limitations.
 
-## 📄 Citation
-
-If you use this dashboard or analysis in your work, please cite:
-
-```
-Zhang, X. (2026). NHANES Oral Health Disparities Dashboard: An Interactive Tool
-for Exploring Oral Health Inequities. BIME 533 Final Project, University of Washington.
-```
-
-## 📝 License
-
-This project is created for educational purposes as part of BIME 533 coursework.
-
-Data from CDC NHANES is publicly available and not subject to copyright restrictions.
-
-## 🤝 Contributing
-
-This is an academic project and not actively maintained. However, if you find issues or have suggestions:
-
-1. Open an issue describing the problem or suggestion
-2. For code changes, fork the repository and submit a pull request
-
-## 📧 Contact
-
-**Xu Meng Zhang**
-- University of Washington
-- BIME 533 - Spring 2026
-
-For questions about the methods or code, please refer to the documentation or open an issue on GitHub.
-
-## 🙏 Acknowledgments
-
-- **CDC/NCHS** for conducting NHANES and making data publicly available
-- **BIME 533 instructors and TAs** for guidance and feedback
-- **Professor [Name]** for project feedback and suggestions
 
 ---
 
